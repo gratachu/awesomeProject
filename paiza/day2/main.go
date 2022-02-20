@@ -44,7 +44,6 @@ func CreateSearchHistory(words []string) []string {
 	var result []string
 	for _, v := range words {
 		if contain(words, v) {
-			// 重複部分の削除
 			result = append([]string{v}, result...)
 		} else {
 			result = append([]string{v}, result...)
