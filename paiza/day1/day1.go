@@ -26,6 +26,7 @@ func makeResult(uniqStrings []string, counter map[string]int) {
 		fmt.Printf("%s %d\n" ,k, counter[k])
 	}
 }
+
 func uniq(ss []string) []string {
 	uniqStrings := []string{}
 	m := make(map[string]bool)
