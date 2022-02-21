@@ -9,12 +9,12 @@ import (
 )
 
 func main()  {
-	winNum, words := getInfo()
-	checkWinning(winNum, words)
+	winNum, words := GetInfo()
+	CheckWinning(winNum, words)
 }
 
 // 一行目に必要な数字、2行目に3行目以降の行数の場合
-func getInfo() (winNum string, words []string) {
+func GetInfo() (winNum string, words []string) {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	// 当選番号
@@ -42,7 +42,7 @@ func getInfo() (winNum string, words []string) {
 }
 
 // 当選番号と購入番号の文字列の配列を渡して当たりか外れかを当てる
-func checkWinning(winNum string, words []string)  {
+func CheckWinning(winNum string, words []string)  {
  winNumInt, _ := strconv.Atoi(winNum)
 
 	for _, v := range words {
