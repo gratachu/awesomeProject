@@ -81,3 +81,18 @@ func GetInfoFirstNum() (winNum string, words []string) {
 
 	return
 }
+
+// []stringを[]intに変換する処理
+func ConvStringSliceToIntSlice(line []string) []int {
+	result := make([]int, len(line))
+	for i, v := range line {
+		vi, err := strconv.Atoi(v)
+		if err != nil {
+			panic(err)
+		}
+
+		result[i] = vi
+	}
+
+	return result
+}

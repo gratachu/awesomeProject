@@ -1,24 +1,22 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+	"sort"
 	"strconv"
-	"strings"
 )
 
 func main()  {
-	scanner := bufio.NewScanner(os.Stdin)
+	// scanner := bufio.NewScanner(os.Stdin)
 
-	scanner.Scan()
-	firstLine := strings.Split(scanner.Text(), " ") 
-	scanner.Scan()
-	secondLine := strings.Split(scanner.Text(), " ")
+	// scanner.Scan()
+	// firstLine := strings.Split(scanner.Text(), " ") 
+	// scanner.Scan()
+	// secondLine := strings.Split(scanner.Text(), " ")
 
 	// for test
-	// firstLine := []string {"10", "2"}
-	// secondLine := []string {"6", "2", "0", "7", "1", "3", "5", "3", "2", "6"}
+	firstLine := []string {"10", "2"}
+	secondLine := []string {"6", "2", "0", "7", "1", "3", "5", "3", "2", "6"}
 	log := ConvStringSliceToIntSlice(secondLine)
 
 	allPeriod, _ := strconv.Atoi(firstLine[0])
@@ -38,6 +36,11 @@ func main()  {
 		periodAverage := float32(totalVisitCount) / float32(campPeriod)
 		campExecCandidateLine = append(campExecCandidateLine, periodAverage)
 
+		var testSlice []float64
+		period := float64(totalVisitCount) / float64(campPeriod)
+		testSlice = append(testSlice, period)
+
+
 		if average < periodAverage {
 			campStartDay = i+1
 			average = periodAverage
@@ -49,11 +52,14 @@ func main()  {
 
 // stringのスライスをintのスライスに置き換える処理
 func ConvStringSliceToIntSlice(line []string) []int {
-	var result []int
-	for _, v := range line {
-		vi, _ := strconv.Atoi(v)
+	result := make([]int, len(line))
+	for i, v := range line {
+		vi, err := strconv.Atoi(v)
+		if err != nil {
+			panic(err)
+		}
 
-		result = append(result, vi)
+		result[i] = vi
 	}
 
 	return result
@@ -62,6 +68,7 @@ func ConvStringSliceToIntSlice(line []string) []int {
 // スライスから最大値を取得して、個数をカウントする
 func GetMaxCount(averages []float32) int {
 	var max float32
+
 	for _, v := range averages {
 		if max < v {
 			max = v
