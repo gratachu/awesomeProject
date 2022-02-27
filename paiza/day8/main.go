@@ -31,9 +31,9 @@ func main()  {
 	coordinates := GetCoordinates(scanner, baseData[2])
 	// fmt.Println(coordinates)
 
-	for _, c := range coordinates {
-		str := texts[c.X]
-		fmt.Println(str[c.Y:c.Y+1])
+	result := ReplaceChar(texts, coordinates)
+	for _, r := range result {
+		fmt.Println(r)
 	}
 }
 
@@ -95,4 +95,18 @@ func GetTexts(sc *bufio.Scanner, count int) []string {
 	}
 
 	return result
+}
+
+// []stringを書き換える処理
+func ReplaceChar(ss []string, cs []Coordinate) []string {
+	for _, c := range cs {
+		s := ss[c.X]
+		sSplited := strings.Split(s, "")
+		sSplited[c.Y] = "#"
+		s = strings.Join(sSplited[:], "")
+
+		ss[c.X] = s
+	}
+
+	return ss
 }
