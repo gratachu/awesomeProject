@@ -96,3 +96,16 @@ func ConvStringSliceToIntSlice(line []string) []int {
 
 	return result
 }
+
+// convert string to integer slice
+func ConvStr2Slice(s string) []int {
+	ss := strings.Split(s, " ")
+	r := []int{}
+
+	for _, v := range ss {
+		i, _ := strconv.Atoi(v)
+		r = append(r, i)
+	}
+
+	return r
+}
