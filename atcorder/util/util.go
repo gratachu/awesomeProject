@@ -2,10 +2,21 @@ package util
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
+
+// N個の可変長数配列を受け取る
+func GetValiableArr(n int) []int{
+	a := make([]int, n)
+	for i := 0; i < n; i++ {
+		fmt.Scanf("%d", &a[i])
+	}
+
+	return a
+}
 
 // 最初に行数、改行後文字列の組み合わせ
 func GetInfo() (count int, words []string) {
