@@ -1,26 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main()  {
-	var N, Y int
-	fmt.Scan(&N, &Y)
+	var str string
+	fmt.Scan(&str)
 
-	res10000c := -1
-	res5000c := -1
-	res1000c := -1
+	str = strings.ReplaceAll(str, "a", "")
+	str = strings.ReplaceAll(str, "i", "")
+	str = strings.ReplaceAll(str, "u", "")
+	str = strings.ReplaceAll(str, "e", "")
+	str = strings.ReplaceAll(str, "o", "")
+	str = strings.ReplaceAll(str, "A", "")
+	str = strings.ReplaceAll(str, "I", "")
+	str = strings.ReplaceAll(str, "U", "")
+	str = strings.ReplaceAll(str, "E", "")
+	str = strings.ReplaceAll(str, "O", "")
 
-	for a := 0; a <= N; a++ {
-		for b := 0; b + a <= N; b++{
-			c := N - a - b
-			total := a * 10000 + b * 5000 + c * 1000
-			if total == Y {
-				res10000c = a
-				res5000c = b
-				res1000c = c
-			}
-		}
-	}
-
-	fmt.Println(res10000c, res5000c, res1000c)
+	fmt.Println(str)
 }
