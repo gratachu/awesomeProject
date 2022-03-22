@@ -20,4 +20,9 @@ for i in range(n):
     if n % i != 0:
         continue
 
-    # 追加の処理
+## for文でiを3桁にゼロ埋めをしてリストにする
+for i in range(1000):
+    num = [c for c in f"{i:03}"]
+
+## 文字列を任意の桁数でゼロ埋めする 例は3桁
+str(n).zfill(3)
