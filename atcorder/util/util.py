@@ -26,3 +26,6 @@ for i in range(1000):
 
 ## 文字列を任意の桁数でゼロ埋めする 例は3桁
 str(n).zfill(3)
+
+# 2次元配列をワンライナーで作る
+list_in_list = [list(map(int, input().split()))[1:] for _ in range(10)]
